@@ -5,20 +5,6 @@
 #include "ucs.h"
 #include "inscricoes.h"
 
-char *pad(char *s, int length)
-{
-    int l = strlen(s); /* its length */
-
-    while (l < length)
-    {
-        s[l] = ' '; /* insert a space */
-        l++;
-    }
-    s[l - 1] = '\0'; /* strings need to be terminated in a null */
-    return s;
-}
-
-
 int countECTS(INSCRICAO *inscricoes[], UCS *uscs[], int tamInscricoes, int tamUcss, int aNum, char *anoLectivo)
 {
     int count = 0;

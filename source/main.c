@@ -4,7 +4,10 @@
 
 #include "alunos.h"
 #include "inscricoes.h"
-#include "relatorio_a.h"
+#include "relatorios/relatorio_a.h"
+#include "relatorios/relatorio_b.h"
+#include "relatorios/relatorio_c.h"
+#include "relatorios/relatorio_d.h"
 #include "ucs.h"
 
 int main(int argc, char *argv[])
@@ -34,15 +37,15 @@ int main(int argc, char *argv[])
         break;
     case 'B':
     case 'b':
-        printRelatorioA_Table(anoLectivo, alunos, inscricoes, uscs, numAlunos, numInscricoes, numUcss);
+        printRelatorioB_Table(anoLectivo, alunos, inscricoes, uscs, numAlunos, numInscricoes, numUcss);
         break;
     case 'C':
     case 'c':
-        printRelatorioA_Table(anoLectivo, alunos, inscricoes, uscs, numAlunos, numInscricoes, numUcss);
+        printRelatorioC_Table(anoLectivo, alunos, inscricoes, uscs, numAlunos, numInscricoes, numUcss);
         break;
     case 'D':
     case 'd':
-        printRelatorioA_Table(anoLectivo, alunos, inscricoes, uscs, numAlunos, numInscricoes, numUcss);
+        printRelatorioD_Table(anoLectivo, alunos, inscricoes, uscs, numAlunos, numInscricoes, numUcss);
         break;
 
     default:

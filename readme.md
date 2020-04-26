@@ -13,7 +13,7 @@ Objetivos:
 
 
 ```bash
-clear && gcc -o mano ./source/*.c && ./mano "2019-2020"
+clear && gcc -o mano ./source/*.c ./source/relatorios/*.c && ./mano "2019-2020"
 ```
 
 *// Sk0rp1u*
