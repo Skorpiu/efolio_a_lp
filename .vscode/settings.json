@@ -1,7 +1,8 @@
 {
     "files.associations": {
         "menus.h": "c",
-        "alunos.h": "c"
+        "alunos.h": "c",
+        "inscricoes.h": "c"
     },
     "cSpell.enableFiletypes": [
         "!c",
