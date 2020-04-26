@@ -14,7 +14,7 @@ Objetivos:
 
 
 ```bash
-clear && gcc -o main ./source/*.c ./source/relatorios/*.c && ./main "2019-2020"
+clear && gcc -o main ./source/*.c ./source/relatorios/*.c && ./main "2019-2020" (linux)
 ```
 
 *// Skorpiu*
