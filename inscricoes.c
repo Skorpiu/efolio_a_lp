@@ -9,18 +9,19 @@ void readFileInscricoes(char *aNum, char *ano)
 {
     FILE *fInscricoes = fopen("inscricoes.txt", "r");
 
-    char linha[tamLinha];
-    INSCRICAO inscricao;
-    INSCRICAO[100] inscricoes;
     int iInscricao = 0
+    char linha[tamLinha];
+    INSCRICAO *inscricao;
+    INSCRICAO[100] *inscricoes;
 
     if (inscricoes != NULL)
     {
-        printf("\nConteudo do Ficheiro:\n");
         while (fgets(linha, tamLinha, fInscricoes) != 0)
         {
             inscricao = displayInscricao(linha);
-            if(inscricao.aNum == aNum && inscricao.ano == ano) {
+            // is the aNum and ano?
+            if(inscricao->aNum == aNum && inscricao->ano == ano) {
+                // only append to list if "aNum" & "ano"
                 inscricoes[iInscricao++] = inscricao;
             }
         }
@@ -33,7 +34,7 @@ void readFileInscricoes(char *aNum, char *ano)
 INSCRICAO *displayInscricao(char *linha)
 {
     const char delimitar[2] = ";";
-    INSCRICAO inscricao;
+    INSCRICAO *inscricao;
     int i = 0;
     char *token = strtok(linha, delimitar);
 
@@ -50,16 +51,16 @@ INSCRICAO *displayInscricao(char *linha)
         switch (i)
         {
         case 0:
-            inscricao.aNum = atoi(token);
+            inscricao->aNum = atoi(token);
             break;
         case 1:
-            inscricao.uc = atoi(token);
+            inscricao->uc = atoi(token);
             break;
         case 2:
-            strcpy(inscricao.ano, token);
+            strcpy(inscricao->ano, token);
             break;
         case 3:
-            inscricao.nota = atoi(token);
+            inscricao->nota = atoi(token);
             break;
 
         default:

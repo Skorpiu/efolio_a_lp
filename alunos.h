@@ -22,6 +22,7 @@ struct t_aluno
 };
 
 ALUNO* displayAluno(char *linha, char *ano);
+void printAlunos(ALUNO *alunos[], int iAluno);
 void printAluno(ALUNO *aluno);
 
 #endif // ALUNOS_H_INCLUDED

@@ -9,7 +9,7 @@
 ALUNO *displayAluno(char *linha, char *ano)
 {
     const char delimitar[2] = ";";
-    ALUNO *aluno;    
+    ALUNO *aluno;
     aluno = malloc(500);
     int i = 0;
     char *token = strtok(linha, delimitar);
@@ -61,7 +61,7 @@ char *pad(char *s, int length)
         s[l] = ' '; /* insert a space */
         l++;
     }
-    s[l-1] = '\0'; /* strings need to be terminated in a null */
+    s[l - 1] = '\0'; /* strings need to be terminated in a null */
     return s;
 }
 
@@ -80,4 +80,12 @@ void printAluno(ALUNO *aluno)
     // printf("\n║  Reside em: %s%s", pad(aluno.pais, tamPais), "║");
     //printf("\n║  ETCS: %s%s", pad(aluno.inscricoes., tamPais), "║");
     printf("\n╚═══════════════════════════════════════════╝\n");
+}
+
+void printAlunos(ALUNO *alunos[], int iAluno)
+{
+    for (size_t i = 0; i < iAluno; i++)
+    {
+        printAluno(alunos[i]);
+    }    
 }

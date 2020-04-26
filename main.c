@@ -7,23 +7,29 @@
 int main(int argc, char *argv[])
 {
     printf("\nFicheiro de leitura: alunos.txt");
-    FILE *alunos = fopen("alunos.txt", "r");
+    FILE *fAlunos = fopen("alunos.txt", "r");
 
     char linha[tamLinha + 1];
     ALUNO *aluno;
     aluno = malloc(sizeof(aluno));
+    
+    int iAluno = 0;
+    ALUNO *alunos[99];
+    // alunos = malloc(sizeof(alunos));
 
     if (alunos != NULL)
     {
         printf("\nConteudo do Ficheiro:\n");
-        while (fgets(linha, tamLinha, alunos) != 0)
+        while (fgets(linha, tamLinha, fAlunos) != 0)
         {
             aluno = displayAluno(linha, "2019-2020");
-            printAluno(aluno);
+            alunos[iAluno] = aluno;            
+            iAluno += 1;
         }
+
+        printAlunos(alunos, iAluno);
     }
 
-    fclose(alunos);
-
+    fclose(fAlunos);
     return 0;
 }
