@@ -3,11 +3,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "ucs.h"
+#include "inscricoes.h"
 
-UCS *getUcs(char *linha)
+INSCRICAO *getInscricao(char *linha)
 {
-    UCS *output;
+    INSCRICAO *output;
     output = malloc(500);
 
     const char delimitar[2] = ";";
@@ -15,11 +15,11 @@ UCS *getUcs(char *linha)
     char *token = strtok(linha, delimitar);
 
     /*
-        token[0] = 21046
-        token[1] = Estruturas_de_Dados_e_Algoritmos_Fundamentais
-        token[2] = 2o_Ano
-        token[3] = 2o_Sem
-        token[4] = 6
+        token[0] = 2001700
+        token[1] = 21002
+        token[2] = 2019-2020
+        token[3] = 10
+        token[4] = NULL
     */
 
     while (token != NULL)
@@ -27,19 +27,16 @@ UCS *getUcs(char *linha)
         switch (i)
         {
         case 0:
-            output->uc = atoi(token);
+            output->aNum = atoi(token);
             break;
         case 1:
-            strcpy(output->nome, token);
+            output->uc = atoi(token);
             break;
         case 2:
             strcpy(output->ano, token);
             break;
         case 3:
-            strcpy(output->semestre, token);
-            break;
-        case 4:
-            output->ects = atoi(token);
+            output->nota = atoi(token);
             break;
 
         default:
@@ -54,23 +51,23 @@ UCS *getUcs(char *linha)
     return output;
 }
 
-int readFileUcss(UCS *ucss[])
+int readFileInscricoes(INSCRICAO *inscricoes[])
 {
-    printf("\nFicheiro de leitura: ucs.txt");
-    FILE *ficheiro = fopen("ucs.txt", "r");
+    printf("\nFicheiro de leitura: inscricoes.txt");
+    FILE *ficheiro = fopen("./files/inscricoes.txt", "r");
 
     int count = 0;
-    char linha[tamLinhaUcs];
+    char linha[tamLinhaInscricao];
     
-    UCS *output;
+    INSCRICAO *output;
     output = malloc(sizeof(output));
 
     if (ficheiro != NULL)
     {
-        while (fgets(linha, tamLinhaUcs, ficheiro) != 0)
+        while (fgets(linha, tamLinhaInscricao, ficheiro) != 0)
         {
-            output = getUcs(linha);
-            ucss[count++] = output;
+            output = getInscricao(linha);
+            inscricoes[count++] = output;
         }
     }
 

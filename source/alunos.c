@@ -52,7 +52,7 @@ ALUNO *getAluno(char *linha)
 int readFileAlunos(ALUNO *alunos[])
 {
     printf("\nFicheiro de leitura: alunos.txt");
-    FILE *ficheiro = fopen("alunos.txt", "r");
+    FILE *ficheiro = fopen("./files/alunos.txt", "r");
 
     int count = 0;
     char linha[tamLinha];
