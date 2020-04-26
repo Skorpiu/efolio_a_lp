@@ -1,10 +1,10 @@
-2001700;Artur Cruz;Cabo Verde;
-2001711;Bruno Soares;Angola;
-2001727;Carlos Mendes;Mocambique;
-2001732;Daniel Rodrigues;Macau;
-2001749;Francisco Jesus;Portugal;
-2001753;Guido Vaz;Brasil;
-2001768;Hugo Prata;Sao Tome;
-2001774;Ivo Rio;Guine;
-2001785;Pedro Silva;Portugal;
-2001799;Xavier Solnado;Brasil;
+2001700;Artur Cruz;Cabo Verde
+2001711;Bruno Soares;Angola
+2001727;Carlos Mendes;Mocambique
+2001732;Daniel Rodrigues;Macau
+2001749;Francisco Jesus;Portugal
+2001753;Guido Vaz;Brasil
+2001768;Hugo Prata;Sao Tome
+2001774;Ivo Rio;Guine
+2001785;Pedro Silva;Portugal
+2001799;Xavier Solnado;Brasil

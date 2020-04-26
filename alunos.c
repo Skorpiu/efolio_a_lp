@@ -31,6 +31,7 @@ Aluno displayAluno(char *linha)
             strcpy(aluno.nome, token);
             break;
         case 2:
+            token[strcspn(token, "\r\n")] = '\0'; // retira caracter de nova linha
             strcpy(aluno.pais, token);
             break;
 
@@ -48,7 +49,6 @@ Aluno displayAluno(char *linha)
 
 char *pad(char *s, int length)
 {
-    s[strcspn(s, "\n")] = '\0';
     int l = strlen(s); /* its length */
 
     while (l < length)

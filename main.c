@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     if (alunos != NULL)
     {
         printf("\nConteudo do Ficheiro:\n");
-        while (fgets(linha, tamLinha, alunos) != NULL)
+        while (fgets(linha, tamLinha, alunos) != 0)
         {
             aluno = displayAluno(linha);
             printAluno(aluno);
