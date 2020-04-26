@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
     ALUNO *alunos[99];
     int numAlunos = readFileAlunos(alunos);
 
-    printRelatorioTable("2012-2013", alunos, inscricoes, numAlunos, numInscricoes);
+    printRelatorioTable("2019-2020", alunos, inscricoes, numAlunos, numInscricoes);
 
     return 0;
 }

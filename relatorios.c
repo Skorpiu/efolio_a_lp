@@ -20,7 +20,8 @@ char *pad(char *s, int length)
 
 void printAlunoBoxUnit(ALUNO *aluno, INSCRICAO *inscricoes[], int tamInscricoes)
 {
-    char nAlun[tamNome] = ""; sprintf(nAlun, "%d", aluno->aNum);
+    char nAlun[tamNome] = "";
+    sprintf(nAlun, "%d", aluno->aNum);
 
     // https://www.rapidtables.com/code/text/ascii-table.html
     char s;
@@ -45,16 +46,40 @@ void printRelatorioBoxes(ALUNO *alunos[], INSCRICAO *inscricoes[], int tamAlunos
 
 void printAlunoRow(ALUNO *aluno, char *anoLectivo, int ectsTotal, int tamInscricoes)
 {
-    char nAlun[tamNome] = ""; sprintf(nAlun, "%d", aluno->aNum);
-    char nECTS[tamNome] = ""; sprintf(nECTS, "%d", ectsTotal);
+    char nAlun[tamNome] = "";
+    sprintf(nAlun, "%d", aluno->aNum);
+    char nECTS[tamNome] = "";
+    sprintf(nECTS, "%d", ectsTotal);
 
-    printf("\n║ %s │ %s │ %s │    %s    │    %s │          ║", 
-        pad(nAlun, 11),
-        pad(aluno->nome, 19), 
-        pad(aluno->pais, 13),
-        anoLectivo,
-        pad(nECTS, 6)
-    );
+    char *obs = " ";
+    if(ectsTotal > 60) {
+        obs = "*";
+    }
+
+    printf("\n║ %s │ %s │ %s │    %s    │    %s │    %s     ║",
+           pad(nAlun, 11),
+           pad(aluno->nome, 19),
+           pad(aluno->pais, 13),
+           anoLectivo,
+           pad(nECTS, 6),
+           obs);
+}
+
+int countECTS(INSCRICAO *inscricoes[], int tamInscricoes, int aNum, char *anoLectivo)
+{
+    int count = 0;
+    for (size_t i = 0; i < tamInscricoes; i++)
+    {
+        INSCRICAO *inscricao = inscricoes[i];
+        
+        if (inscricao->aNum == aNum && strcmp(inscricao->ano, anoLectivo) == 0)
+        {
+            // printf("ALUNO (%d) ECTS (%d) >%s< == >%s<\n", inscricao->aNum, inscricao->nota, inscricao->ano, anoLectivo);
+            count += inscricao->nota;
+        }
+    }
+
+    return count;
 }
 
 void printRelatorioTable(char *anoLectivo, ALUNO *alunos[], INSCRICAO *inscricoes[], int tamAlunos, int tamInscricoes)
@@ -65,7 +90,8 @@ void printRelatorioTable(char *anoLectivo, ALUNO *alunos[], INSCRICAO *inscricoe
     for (size_t i = 0; i < tamAlunos; i++)
     {
         ALUNO *aluno = alunos[i];
-        printAlunoRow(aluno, anoLectivo, 0, tamInscricoes);
+        int ectsCount = countECTS(inscricoes, tamInscricoes, aluno->aNum, anoLectivo);
+        printAlunoRow(aluno, anoLectivo, ectsCount, tamInscricoes);
     }
     printf("\n╠════════════╧════════════════════╧══════════════╧═════════════════╧══════════╧══════════╣");
     printf("\n║ * Nº de inscrições deste um aluno ultrapassa o valor máximo 60 ECTS!                   ║");
