@@ -73,19 +73,7 @@ int readFileAlunos(ALUNO *alunos[])
     return count;
 }
 
-char *pad(char *s, int length)
-{
-    int l = strlen(s); /* its length */
-
-    while (l < length)
-    {
-        s[l] = ' '; /* insert a space */
-        l++;
-    }
-    s[l - 1] = '\0'; /* strings need to be terminated in a null */
-    return s;
-}
-
+/*
 void printAluno(ALUNO *aluno)
 {
     char strNumero[tamNome] = "";
@@ -110,3 +98,4 @@ void printAlunos(ALUNO *alunos[], int iAluno)
         printAluno(alunos[i]);
     }    
 }
+*/

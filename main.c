@@ -4,6 +4,7 @@
 
 #include "alunos.h"
 #include "inscricoes.h"
+#include "relatorios.h"
 
 int main(int argc, char *argv[])
 {
@@ -13,7 +14,7 @@ int main(int argc, char *argv[])
     ALUNO *alunos[99];
     int numAlunos = readFileAlunos(alunos);
 
-    printAlunos(alunos, numAlunos);
+    printRelatorioTable("2012-2013", alunos, inscricoes, numAlunos, numInscricoes);
 
     return 0;
 }

@@ -20,8 +20,8 @@ struct t_aluno
 
 int readFileAlunos(ALUNO *alunos[]);
 ALUNO *getAluno(char *linha);
-void printAlunos(ALUNO *alunos[], int iAluno);
-void printAluno(ALUNO *aluno);
+// void printAlunos(ALUNO *alunos[], int iAluno);
+// void printAluno(ALUNO *aluno);
 
 char *pad(char *s, int length);
 
