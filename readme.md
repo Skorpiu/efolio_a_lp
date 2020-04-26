@@ -1,5 +1,6 @@
 # Efolio A - Laboratório de Programação
 
+
 trabalho em ANSI C no âmbito do:
 
 Desenvolvimento de programas de média dimensão
@@ -13,7 +14,7 @@ Objetivos:
 
 
 ```bash
-clear && gcc -o mano ./source/*.c ./source/relatorios/*.c && ./mano "2019-2020"
+clear && gcc -o main ./source/*.c ./source/relatorios/*.c && ./main "2019-2020"
 ```
 
-*// Sk0rp1u*
+*// Skorpiu*

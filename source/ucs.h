@@ -1,3 +1,13 @@
+/*
+UC: 21178 - Laboratorio de Programação
+Ano 2019/20    E-folio A
+
+Universidade Aberta - Engenharia Informática
+
+Nº 1901774  Rui Sousa
+
+Ficheiro: ucs.h
+*/
 
 #ifndef UCSS_H_INCLUDED
 #define UCSS_H_INCLUDED
@@ -25,3 +35,5 @@ UCS *getUcs(char *linha);
 int readFileUcss(UCS *ucss[]);
 
 #endif // UCSS_H_INCLUDED
+
+// Fim ficheiro "ucs.h"

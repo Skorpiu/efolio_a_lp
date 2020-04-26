@@ -1,3 +1,13 @@
+/*
+UC: 21178 - Laboratorio de Programação
+Ano 2019/20    E-folio A
+
+Universidade Aberta - Engenharia Informática
+
+Nº 1901774  Rui Sousa
+
+Ficheiro: ucs.c
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -5,6 +15,8 @@
 
 #include "ucs.h"
 
+
+// Recolha dos dados existentes no ficheiro "ucs.txt"
 UCS *getUcs(char *linha)
 {
     UCS *output;
@@ -46,7 +58,7 @@ UCS *getUcs(char *linha)
             break;
         }
 
-        // get next line
+        // linha seguinte
         token = strtok(NULL, delimitar);
         i++;
     }
@@ -77,3 +89,5 @@ int readFileUcss(UCS *ucss[])
     fclose(ficheiro);
     return count;
 }
+
+// Fim ficheiro "ucs.c"

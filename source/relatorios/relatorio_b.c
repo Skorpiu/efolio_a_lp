@@ -1,3 +1,20 @@
+/*
+UC: 21178 - Laboratorio de Programação
+Ano 2019/20    E-folio A
+
+Universidade Aberta - Engenharia Informática
+
+Nº 1901774  Rui Sousa
+
+Relatório B:
+"b) Lista de alunos que podem aceder à época de exame especial.
+Considere que um aluno poderá fazer a época especial se já
+frequentou todas as unidades curriculares, faltando-lhe apenas obter
+aprovação a um máximo de 3 UCs."
+
+Ficheiro: relatorio_b.c
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -45,3 +62,5 @@ void printRelatorioB_Table(char *anoLectivo, ALUNO *alunos[], INSCRICAO *inscric
     printf("\n║ ** Aluno não matriculano neste Ano Lectivo                                             ║");
     printf("\n╚════════════════════════════════════════════════════════════════════════════════════════╝\n");
 }
+
+// Fim ficheiro "relatorio_b.c"

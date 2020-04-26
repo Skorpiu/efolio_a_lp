@@ -1,3 +1,13 @@
+/*
+UC: 21178 - Laboratorio de Programação
+Ano 2019/20    E-folio A
+
+Universidade Aberta - Engenharia Informática
+
+Nº 1901774  Rui Sousa
+
+Ficheiro: alunos.c
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -5,6 +15,7 @@
 
 #include "alunos.h"
 
+// Recolha dos dados existentes no ficheiro "alunos.txt"
 ALUNO *getAluno(char *linha)
 {
     ALUNO *output;
@@ -41,7 +52,7 @@ ALUNO *getAluno(char *linha)
             break;
         }
 
-        // get next line
+        // linha seguinte
         token = strtok(NULL, delimitar);
         i++;
     }
@@ -73,29 +84,4 @@ int readFileAlunos(ALUNO *alunos[])
     return count;
 }
 
-/*
-void printAluno(ALUNO *aluno)
-{
-    char strNumero[tamNome] = "";
-    sprintf(strNumero, "%d", aluno->aNum);
-
-    // https://www.rapidtables.com/code/text/ascii-table.html
-    char s;
-    printf("\n╔═══════════════════════════════════════════╗");
-    printf("\n║                A L U N O                  ║");
-    printf("\n╟───────────────────────────────────────────╢");
-    printf("\n║  Numero:    %s%s", pad(strNumero, tamNome), "║");
-    printf("\n║  Nome:      %s%s", pad(aluno->nome, tamNome), "║");
-    // printf("\n║  Reside em: %s%s", pad(aluno.pais, tamPais), "║");
-    //printf("\n║  ETCS: %s%s", pad(aluno.inscricoes., tamPais), "║");
-    printf("\n╚═══════════════════════════════════════════╝\n");
-}
-
-void printAlunos(ALUNO *alunos[], int iAluno)
-{
-    for (size_t i = 0; i < iAluno; i++)
-    {
-        printAluno(alunos[i]);
-    }    
-}
-*/
+// Fim ficheiro "alunos.c"

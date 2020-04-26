@@ -1,3 +1,13 @@
+/*
+UC: 21178 - Laboratorio de Programação
+Ano 2019/20    E-folio A
+
+Universidade Aberta - Engenharia Informática
+
+Nº 1901774  Rui Sousa
+
+Ficheiro: inscricoes.c
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -5,6 +15,7 @@
 
 #include "inscricoes.h"
 
+// Recolha dos dados existentes no ficheiro "inscricoes.txt"
 INSCRICAO *getInscricao(char *linha)
 {
     INSCRICAO *output;
@@ -43,7 +54,7 @@ INSCRICAO *getInscricao(char *linha)
             break;
         }
 
-        // get next line
+        // linha seguinte
         token = strtok(NULL, delimitar);
         i++;
     }
@@ -74,3 +85,5 @@ int readFileInscricoes(INSCRICAO *inscricoes[])
     fclose(ficheiro);
     return count;
 }
+
+// Fim ficheiro "inscricoes.c"

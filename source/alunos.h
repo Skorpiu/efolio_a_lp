@@ -1,3 +1,13 @@
+/*
+UC: 21178 - Laboratorio de Programação
+Ano 2019/20    E-folio A
+
+Universidade Aberta - Engenharia Informática
+
+Nº 1901774  Rui Sousa
+
+Ficheiro: alunos.h
+*/
 
 #ifndef ALUNOS_H_INCLUDED
 #define ALUNOS_H_INCLUDED
@@ -20,9 +30,9 @@ struct t_aluno
 
 int readFileAlunos(ALUNO *alunos[]);
 ALUNO *getAluno(char *linha);
-// void printAlunos(ALUNO *alunos[], int iAluno);
-// void printAluno(ALUNO *aluno);
 
 char *pad(char *s, int length);
 
 #endif // ALUNOS_H_INCLUDED
+
+// Fim ficheiro "alunos.h"

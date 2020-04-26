@@ -1,3 +1,13 @@
+/*
+UC: 21178 - Laboratorio de Programação
+Ano 2019/20    E-folio A
+
+Universidade Aberta - Engenharia Informática
+
+Nº 1901774  Rui Sousa
+
+Ficheiro: inscricoes.h
+*/
 
 #ifndef INSCRICOES_H_INCLUDED
 #define INSCRICOES_H_INCLUDED
@@ -22,3 +32,5 @@ INSCRICAO *getInscricao(char *linha);
 int readFileInscricoes(INSCRICAO *inscricoes[]);
 
 #endif // INSCRICOES_H_INCLUDED
+
+// Fim ficheiro "inscricoes.h"

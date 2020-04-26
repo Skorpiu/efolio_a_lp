@@ -1,3 +1,14 @@
+/*
+UC: 21178 - Laboratorio de Programação
+Ano 2019/20    E-folio A
+
+Universidade Aberta - Engenharia Informática
+
+Nº 1901774  Rui Sousa
+
+Ficheiro: main.c
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -13,7 +24,7 @@
 int main(int argc, char *argv[])
 {
     // seleccao
-    char *anoLectivo = "2018-2019";
+    char *anoLectivo = "2019-2020";
     char relatorio = 0;
     printf("\nEscolha o tipo de relatório (A, B, C, D): ");
     scanf("%c", &relatorio);
@@ -55,3 +66,5 @@ int main(int argc, char *argv[])
 
     return 0;
 }
+
+// Fim ficheiro "main.c"

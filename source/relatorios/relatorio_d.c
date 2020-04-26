@@ -1,3 +1,20 @@
+/*
+UC: 21178 - Laboratorio de Programação
+Ano 2019/20    E-folio A
+
+Universidade Aberta - Engenharia Informática
+
+Nº 1901774  Rui Sousa
+
+Relatório D:
+"d) Número de alunos por ano letivo. Apresente a lista com o ano
+letivo, nº de alunos inscritos nesse ano e percentagem de variação
+relativamente ao anterior (sinal positivo se for aumento, sinal
+negativo se decréscimo)."
+
+Ficheiro: relatorio_d.c
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -45,3 +62,5 @@ void printRelatorioD_Table(char *anoLectivo, ALUNO *alunos[], INSCRICAO *inscric
     printf("\n║ ** Aluno não matriculano neste Ano Lectivo                                             ║");
     printf("\n╚════════════════════════════════════════════════════════════════════════════════════════╝\n");
 }
+
+// Fim ficheiro "relatorio_d.c"
