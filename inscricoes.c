@@ -5,36 +5,12 @@
 
 #include "inscricoes.h"
 
-void readFileInscricoes(char *aNum, char *ano)
+INSCRICAO *getInscricao(char *linha)
 {
-    FILE *fInscricoes = fopen("inscricoes.txt", "r");
+    INSCRICAO *output;
+    output = malloc(500);
 
-    int iInscricao = 0
-    char linha[tamLinha];
-    INSCRICAO *inscricao;
-    INSCRICAO[100] *inscricoes;
-
-    if (inscricoes != NULL)
-    {
-        while (fgets(linha, tamLinha, fInscricoes) != 0)
-        {
-            inscricao = displayInscricao(linha);
-            // is the aNum and ano?
-            if(inscricao->aNum == aNum && inscricao->ano == ano) {
-                // only append to list if "aNum" & "ano"
-                inscricoes[iInscricao++] = inscricao;
-            }
-        }
-    }
-
-    fclose(inscricoes);
-    return inscricoes;
-}
-
-INSCRICAO *displayInscricao(char *linha)
-{
     const char delimitar[2] = ";";
-    INSCRICAO *inscricao;
     int i = 0;
     char *token = strtok(linha, delimitar);
 
@@ -51,16 +27,16 @@ INSCRICAO *displayInscricao(char *linha)
         switch (i)
         {
         case 0:
-            inscricao->aNum = atoi(token);
+            output->aNum = atoi(token);
             break;
         case 1:
-            inscricao->uc = atoi(token);
+            output->uc = atoi(token);
             break;
         case 2:
-            strcpy(inscricao->ano, token);
+            strcpy(output->ano, token);
             break;
         case 3:
-            inscricao->nota = atoi(token);
+            output->nota = atoi(token);
             break;
 
         default:
@@ -72,9 +48,50 @@ INSCRICAO *displayInscricao(char *linha)
         i++;
     }
 
-    return inscricao;
+    return output;
 }
 
-INSCRICAO *getInscricoes(int aNum, char *ano) {
-    // return readFileInscricoes(aNum, ano);
+INSCRICAO *getInscricoesPorAlunoEAno(INSCRICAO *inscricoesOriginais[], int aNum, char *ano)
+{
+    /*
+    int count = 0;
+    int countOriginal = sizeof(inscricoesOriginais);
+    INSCRICAO[299] * inscricoes;
+
+    // vamos filtrar inscricoes por ALUNO e ANO
+    for (size_t i = 0; i < countOriginal; i++)
+    {
+        INSCRICAO inscricao = inscricoesOriginais[i];
+        if (inscricao->aNum == aNum && inscricao->ano == ano)
+        {
+            inscricoes[count++] = inscricao;
+        }
+    }
+
+    return inscricoes;
+    */
+}
+
+int readFileInscricoes(INSCRICAO *inscricoes[])
+{
+    printf("\nFicheiro de leitura: inscricoes.txt");
+    FILE *ficheiro = fopen("inscricoes.txt", "r");
+
+    int count = 0;
+    char linha[tamLinhaInscricao];
+    
+    INSCRICAO *output;
+    output = malloc(sizeof(output));
+
+    if (ficheiro != NULL)
+    {
+        while (fgets(linha, tamLinhaInscricao, ficheiro) != 0)
+        {
+            output = getInscricao(linha);
+            inscricoes[count++] = output;
+        }
+    }
+
+    fclose(ficheiro);
+    return count;
 }

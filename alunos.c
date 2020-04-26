@@ -4,13 +4,13 @@
 #include <string.h>
 
 #include "alunos.h"
-// #include "inscricoes.h"
 
-ALUNO *displayAluno(char *linha, char *ano)
+ALUNO *getAluno(char *linha)
 {
+    ALUNO *output;
+    output = malloc(500);
+
     const char delimitar[2] = ";";
-    ALUNO *aluno;
-    aluno = malloc(500);
     int i = 0;
     char *token = strtok(linha, delimitar);
 
@@ -27,17 +27,14 @@ ALUNO *displayAluno(char *linha, char *ano)
         {
             // [0] 2001700; [1] Artur Cruz; [2] Cabo Verde
         case 0:
-            aluno->aNum = atoi(token);
+            output->aNum = atoi(token);
             break;
         case 1:
-            strcpy(aluno->nome, token);
+            strcpy(output->nome, token);
             break;
         case 2:
             token[strcspn(token, "\r\n")] = '\0'; // retira caracter de nova linha
-            strcpy(aluno->pais, token);
-
-            // append INSCRICOES
-            // aluno->inscricoes = getInscricoes(aluno->aNum, ano);
+            strcpy(output->pais, token);
             break;
 
         default:
@@ -49,7 +46,31 @@ ALUNO *displayAluno(char *linha, char *ano)
         i++;
     }
 
-    return aluno;
+    return output;
+}
+
+int readFileAlunos(ALUNO *alunos[])
+{
+    printf("\nFicheiro de leitura: alunos.txt");
+    FILE *ficheiro = fopen("alunos.txt", "r");
+
+    int count = 0;
+    char linha[tamLinha];
+    
+    ALUNO *output;
+    output = malloc(sizeof(output));
+
+    if (ficheiro != NULL)
+    {
+        while (fgets(linha, tamLinha, ficheiro) != 0)
+        {
+            output = getAluno(linha);
+            alunos[count++] = output;
+        }
+    }
+
+    fclose(ficheiro);
+    return count;
 }
 
 char *pad(char *s, int length)

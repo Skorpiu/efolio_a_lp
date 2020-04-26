@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define tamLinha 70 + 1
+#define tamLinhaInscricao 70 + 1
 #define tamAno 9 + 1
 
 typedef struct t_inscricao INSCRICAO;
@@ -18,8 +18,8 @@ struct t_inscricao
     int nota;
 };
 
-void readFileInscricoes(char *aNum);
-INSCRICAO* displayInscricao(char *linha);
-INSCRICAO* getInscricoes(int aNum, char *ano);
+INSCRICAO *getInscricao(char *linha);
+INSCRICAO *getInscricoesPorAlunoEAno(INSCRICAO *inscricoesOriginais[], int aNum, char *ano);
+int readFileInscricoes(INSCRICAO *inscricoes[]);
 
 #endif // INSCRICOES_H_INCLUDED
