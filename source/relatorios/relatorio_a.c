@@ -61,8 +61,8 @@ void printRelatorioA_Table(char *anoLectivo, ALUNO *alunos[], INSCRICAO *inscric
         printAlunoA_Row(aluno, anoLectivo, ectsCount);
     }
     printf("\n╠════════════╧════════════════════╧══════════════╧═════════════════╧══════════╧══════════╣");
-    printf("\n║ *  Nº de inscrições deste um aluno ultrapassa o valor máximo 60 ECTS!                  ║");
-    printf("\n║ ** Aluno não matriculano neste Ano Lectivo                                             ║");
+    printf("\n║ *  Nº de inscrições deste aluno ultrapassa o valor máximo 60 ECTS!                     ║");
+    printf("\n║ ** Aluno não está matriculado neste Ano Lectivo                                        ║");
     printf("\n╚════════════════════════════════════════════════════════════════════════════════════════╝\n");
 }
 
