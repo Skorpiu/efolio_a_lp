@@ -30,7 +30,7 @@ void printAlunoA_Row(ALUNO *aluno, char *anoLectivo, int ectsTotal)
 void printRelatorioA_Table(char *anoLectivo, ALUNO *alunos[], INSCRICAO *inscricoes[], UCS *ucss[], int tamAlunos, int tamInscricoes, int tamUcss)
 {
     printf("\n╔═════════════════════════════════╕");
-    printf("\n║ * Relatório A                   │");
+    printf("\n║ • Relatório A                   │");
     printf("\n╠════════════╤════════════════════╪══════════════╤═════════════════╤══════════╤══════════╗");
     printf("\n╟── Número ──┼─────── Nome ───────┼──── País ────┼── Ano Lectivo ──┼── ECTS ──┼── Obs. ──╢");
     printf("\n╠════════════╪════════════════════╪══════════════╪═════════════════╪══════════╪══════════╣");
