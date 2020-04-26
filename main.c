@@ -6,20 +6,19 @@
 
 int main(int argc, char *argv[])
 {
-    FILE *alunos = NULL;
-
     printf("\nFicheiro de leitura: alunos.txt");
-    alunos = fopen("alunos.txt", "r");
+    FILE *alunos = fopen("alunos.txt", "r");
 
     char linha[tamLinha + 1];
-    Aluno aluno;
+    ALUNO *aluno;
+    aluno = malloc(sizeof(aluno));
 
     if (alunos != NULL)
     {
         printf("\nConteudo do Ficheiro:\n");
         while (fgets(linha, tamLinha, alunos) != 0)
         {
-            aluno = displayAluno(linha);
+            aluno = displayAluno(linha, "2019-2020");
             printAluno(aluno);
         }
     }

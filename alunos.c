@@ -4,11 +4,13 @@
 #include <string.h>
 
 #include "alunos.h"
+// #include "inscricoes.h"
 
-Aluno displayAluno(char *linha)
+ALUNO *displayAluno(char *linha, char *ano)
 {
     const char delimitar[2] = ";";
-    Aluno aluno;
+    ALUNO *aluno;    
+    aluno = malloc(500);
     int i = 0;
     char *token = strtok(linha, delimitar);
 
@@ -25,14 +27,17 @@ Aluno displayAluno(char *linha)
         {
             // [0] 2001700; [1] Artur Cruz; [2] Cabo Verde
         case 0:
-            aluno.aNum = atoi(token);
+            aluno->aNum = atoi(token);
             break;
         case 1:
-            strcpy(aluno.nome, token);
+            strcpy(aluno->nome, token);
             break;
         case 2:
             token[strcspn(token, "\r\n")] = '\0'; // retira caracter de nova linha
-            strcpy(aluno.pais, token);
+            strcpy(aluno->pais, token);
+
+            // append INSCRICOES
+            // aluno->inscricoes = getInscricoes(aluno->aNum, ano);
             break;
 
         default:
@@ -60,10 +65,10 @@ char *pad(char *s, int length)
     return s;
 }
 
-void printAluno(Aluno aluno)
+void printAluno(ALUNO *aluno)
 {
     char strNumero[tamNome] = "";
-    sprintf(strNumero, "%d", aluno.aNum);
+    sprintf(strNumero, "%d", aluno->aNum);
 
     // https://www.rapidtables.com/code/text/ascii-table.html
     char s;
@@ -71,7 +76,8 @@ void printAluno(Aluno aluno)
     printf("\n║                A L U N O                  ║");
     printf("\n╟───────────────────────────────────────────╢");
     printf("\n║  Numero:    %s%s", pad(strNumero, tamNome), "║");
-    printf("\n║  Nome:      %s%s", pad(aluno.nome, tamNome), "║");
-    printf("\n║  Reside em: %s%s", pad(aluno.pais, tamPais), "║");
+    printf("\n║  Nome:      %s%s", pad(aluno->nome, tamNome), "║");
+    // printf("\n║  Reside em: %s%s", pad(aluno.pais, tamPais), "║");
+    //printf("\n║  ETCS: %s%s", pad(aluno.inscricoes., tamPais), "║");
     printf("\n╚═══════════════════════════════════════════╝\n");
 }

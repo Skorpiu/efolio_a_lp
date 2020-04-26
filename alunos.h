@@ -6,18 +6,22 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "inscricoes.h"
+
 #define tamLinha 70 + 1
 #define tamNome 30  + 1
 #define tamPais 30  + 1
 
-typedef struct
+typedef struct t_aluno ALUNO;
+struct t_aluno
 {
     int aNum;
     char nome[tamNome];
     char pais[tamPais];
-} Aluno;
+    INSCRICAO *inscricoes;
+};
 
-Aluno displayAluno(char *linha);
-void printAluno(Aluno aluno);
+ALUNO* displayAluno(char *linha, char *ano);
+void printAluno(ALUNO *aluno);
 
 #endif // ALUNOS_H_INCLUDED
