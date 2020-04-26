@@ -19,7 +19,6 @@ struct t_inscricao
 };
 
 INSCRICAO *getInscricao(char *linha);
-INSCRICAO *getInscricoesPorAlunoEAno(INSCRICAO *inscricoesOriginais[], int aNum, char *ano);
 int readFileInscricoes(INSCRICAO *inscricoes[]);
 
 #endif // INSCRICOES_H_INCLUDED

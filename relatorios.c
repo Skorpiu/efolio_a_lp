@@ -4,6 +4,7 @@
 
 #include "alunos.h"
 #include "inscricoes.h"
+#include "ucs.h"
 
 char *pad(char *s, int length)
 {
@@ -44,7 +45,7 @@ void printRelatorioBoxes(ALUNO *alunos[], INSCRICAO *inscricoes[], int tamAlunos
     }
 }
 
-void printAlunoRow(ALUNO *aluno, char *anoLectivo, int ectsTotal, int tamInscricoes)
+void printAlunoRow(ALUNO *aluno, char *anoLectivo, int ectsTotal)
 {
     char nAlun[tamNome] = "";
     sprintf(nAlun, "%d", aluno->aNum);
@@ -65,7 +66,7 @@ void printAlunoRow(ALUNO *aluno, char *anoLectivo, int ectsTotal, int tamInscric
            obs);
 }
 
-int countECTS(INSCRICAO *inscricoes[], int tamInscricoes, int aNum, char *anoLectivo)
+int countECTS(INSCRICAO *inscricoes[], UCS *uscs[], int tamInscricoes, int tamUcss, int aNum, char *anoLectivo)
 {
     int count = 0;
     for (size_t i = 0; i < tamInscricoes; i++)
@@ -75,14 +76,21 @@ int countECTS(INSCRICAO *inscricoes[], int tamInscricoes, int aNum, char *anoLec
         if (inscricao->aNum == aNum && strcmp(inscricao->ano, anoLectivo) == 0)
         {
             // printf("ALUNO (%d) ECTS (%d) >%s< == >%s<\n", inscricao->aNum, inscricao->nota, inscricao->ano, anoLectivo);
-            count += inscricao->nota;
+            
+            for (size_t z = 0; z < tamUcss; z++) {
+                UCS *ucs = uscs[z];
+                if(inscricao->uc == ucs->uc) {
+                    count += ucs->ects;
+                    break;
+                }
+            }
         }
     }
 
     return count;
 }
 
-void printRelatorioTable(char *anoLectivo, ALUNO *alunos[], INSCRICAO *inscricoes[], int tamAlunos, int tamInscricoes)
+void printRelatorioTable(char *anoLectivo, ALUNO *alunos[], INSCRICAO *inscricoes[], UCS *ucss[], int tamAlunos, int tamInscricoes, int tamUcss)
 {
     printf("\n╔════════════╤════════════════════╤══════════════╤═════════════════╤══════════╤══════════╗");
     printf("\n╟── Número ──┼─────── Nome ───────┼──── País ────┼── Ano Lectivo ──┼── ECTS ──┼── Obs. ──╢");
@@ -90,8 +98,8 @@ void printRelatorioTable(char *anoLectivo, ALUNO *alunos[], INSCRICAO *inscricoe
     for (size_t i = 0; i < tamAlunos; i++)
     {
         ALUNO *aluno = alunos[i];
-        int ectsCount = countECTS(inscricoes, tamInscricoes, aluno->aNum, anoLectivo);
-        printAlunoRow(aluno, anoLectivo, ectsCount, tamInscricoes);
+        int ectsCount = countECTS(inscricoes, ucss, tamInscricoes, tamUcss, aluno->aNum, anoLectivo);
+        printAlunoRow(aluno, anoLectivo, ectsCount);
     }
     printf("\n╠════════════╧════════════════════╧══════════════╧═════════════════╧══════════╧══════════╣");
     printf("\n║ * Nº de inscrições deste um aluno ultrapassa o valor máximo 60 ECTS!                   ║");
