@@ -1,3 +1,3 @@
 # Efolio A - Laboratório de Programação
 
-conteúdo da source
+conteúdo dos ficheiros a utilizar
