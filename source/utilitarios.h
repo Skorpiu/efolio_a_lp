@@ -18,8 +18,14 @@ Ficheiro: utilitarios.h
 
 #include "ucs.h"
 #include "inscricoes.h"
+#include "relatorios/relatorio_d.h"
 
 int countECTS(INSCRICAO *inscricoes[], UCS *uscs[], int tamInscricoes, int tamUcss, int aNum, char *anoLectivo);
+size_t FindInscricoesIndex(ANOSLECTIVOS *a[], size_t size, int aNum, char *anoLectivo);
+size_t FindAnosLectivosIndex(ANOSLECTIVOSTOTAL *a[], size_t size, char *anoLectivo);
+
+void sort(ANOSLECTIVOSTOTAL *arr[], int n);
+static int myCompare(const void* a, const void* b);
 
 #endif // UTILITARIOS_H_INCLUDED
 

@@ -51,7 +51,7 @@ ALUNO *getAluno(char *linha)
         default:
             break;
         }
-
+        
         // linha seguinte
         token = strtok(NULL, delimitar);
         i++;
@@ -76,7 +76,9 @@ int readFileAlunos(ALUNO *alunos[])
         while (fgets(linha, tamLinha, ficheiro) != 0)
         {
             output = getAluno(linha);
-            alunos[count++] = output;
+            if(output->aNum != 0) { // pass linhas em branco
+                alunos[count++] = output;
+            }
         }
     }
 

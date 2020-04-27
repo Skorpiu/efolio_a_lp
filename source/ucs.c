@@ -29,34 +29,34 @@ UCS *getUcs(char *linha)
     /*
         token[0] = 21046
         token[1] = Estruturas_de_Dados_e_Algoritmos_Fundamentais
-        token[2] = 2o_Ano
-        token[3] = 2o_Sem
+        token[2] = 2
+        token[3] = 2
         token[4] = 6
     */
 
     while (token != NULL)
     {
-        switch (i)
-        {
-        case 0:
-            output->uc = atoi(token);
-            break;
-        case 1:
-            strcpy(output->nome, token);
-            break;
-        case 2:
-            strcpy(output->ano, token);
-            break;
-        case 3:
-            strcpy(output->semestre, token);
-            break;
-        case 4:
-            output->ects = atoi(token);
-            break;
+            switch (i)
+            {
+            case 0:
+                output->uc = atoi(token);
+                break;
+            case 1:
+                strcpy(output->nome, token);
+                break;
+            case 2:
+                strcpy(output->ano, token);
+                break;
+            case 3:
+                strcpy(output->semestre, token);
+                break;
+            case 4:
+                output->ects = atoi(token);
+                break;
 
-        default:
-            break;
-        }
+            default:
+                break;
+            }
 
         // linha seguinte
         token = strtok(NULL, delimitar);
@@ -82,7 +82,9 @@ int readFileUcss(UCS *ucss[])
         while (fgets(linha, tamLinhaUcs, ficheiro) != 0)
         {
             output = getUcs(linha);
-            ucss[count++] = output;
+            if(output->uc != 0) { // pass linhas em branco
+                ucss[count++] = output;
+            }
         }
     }
 

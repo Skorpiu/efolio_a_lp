@@ -26,8 +26,26 @@ Ficheiro: relatorio_d.h
 #include "../inscricoes.h"
 #include "../ucs.h"
 
-void printAlunoD_Row(ALUNO *aluno, char *anoLectivo, int ectsTotal, int tamInscricoes);
+typedef struct t_anosLectivos ANOSLECTIVOS;
+struct t_anosLectivos
+{
+    int aNum;
+    char ano[tamAno];
+};
+
+typedef struct t_anosLectivosTotal ANOSLECTIVOSTOTAL;
+struct t_anosLectivosTotal
+{
+    char ano[tamAno];
+    int total;
+    char *variacao; // "-14" "+25.43"
+};
+
+void printAlunoD_Row(ALUNO *aluno, char *anoLectivo, int ectsTotal);
 void printRelatorioD_Table(char *anoLectivo, ALUNO *alunos[], INSCRICAO *inscricoes[], UCS *ucss[], int tamAlunos, int tamInscricoes, int tamUcss);
+
+ANOSLECTIVOSTOTAL *fillAnoLectivoTotal(char *ano);
+ANOSLECTIVOS *fillAnoLectivo(int aNum, char *ano);
 
 #endif // RELATORIO_D_H_INCLUDED
 

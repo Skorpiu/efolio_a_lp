@@ -18,8 +18,8 @@ Ficheiro: ucs.h
 
 #define tamLinhaUcs 70 + 1
 #define tamNomeUcs 70 + 1
-#define tamAnoUcs 6 + 1
-#define tamSemestre 6 + 1
+#define tamAnoUcs 2 + 1
+#define tamSemestre 2 + 1
 
 typedef struct t_ucs UCS;
 struct t_ucs

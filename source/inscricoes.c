@@ -35,24 +35,24 @@ INSCRICAO *getInscricao(char *linha)
 
     while (token != NULL)
     {
-        switch (i)
-        {
-        case 0:
-            output->aNum = atoi(token);
-            break;
-        case 1:
-            output->uc = atoi(token);
-            break;
-        case 2:
-            strcpy(output->ano, token);
-            break;
-        case 3:
-            output->nota = atoi(token);
-            break;
+            switch (i)
+            {
+            case 0:
+                output->aNum = atoi(token);
+                break;
+            case 1:
+                output->uc = atoi(token);
+                break;
+            case 2:
+                strcpy(output->ano, token);
+                break;
+            case 3:
+                output->nota = atoi(token);
+                break;
 
-        default:
-            break;
-        }
+            default:
+                break;
+            }
 
         // linha seguinte
         token = strtok(NULL, delimitar);
@@ -78,7 +78,9 @@ int readFileInscricoes(INSCRICAO *inscricoes[])
         while (fgets(linha, tamLinhaInscricao, ficheiro) != 0)
         {
             output = getInscricao(linha);
-            inscricoes[count++] = output;
+            if(output->aNum != 0) { // pass linhas em branco
+                inscricoes[count++] = output;
+            }
         }
     }
 
