@@ -15,20 +15,14 @@ Ficheiro: main.c
 
 #include "alunos.h"
 #include "inscricoes.h"
-#include "relatorios/relatorio_a.h"
-#include "relatorios/relatorio_b.h"
-#include "relatorios/relatorio_c.h"
-#include "relatorios/relatorio_d.h"
 #include "ucs.h"
+#include "relatorios/relatorio_a.h"
 
 int main(int argc, char *argv[])
 {
     // seleccao
-    char *anoLectivo = "2019-2020";
-    char relatorio = 0;
-    printf("\nEscolha o tipo de relatório (A, B, C, D): ");
-    scanf("%c", &relatorio);
-
+    char *anoLectivo = "2019-2020"; // ano lectivo corrente
+    
     // ler ficheiros
     INSCRICAO *inscricoes[299];
     int numInscricoes = readFileInscricoes(inscricoes);
@@ -39,30 +33,8 @@ int main(int argc, char *argv[])
     UCS *uscs[99];
     int numUcss = readFileUcss(uscs);
 
-    // imprime relatorio escolhido
-    switch (relatorio)
-    {
-    case 'A':
-    case 'a':
-        printRelatorioA_Table(anoLectivo, alunos, inscricoes, uscs, numAlunos, numInscricoes, numUcss);
-        break;
-    case 'B':
-    case 'b':
-        printRelatorioB_Table(anoLectivo, alunos, inscricoes, uscs, numAlunos, numInscricoes, numUcss);
-        break;
-    case 'C':
-    case 'c':
-        printRelatorioC_Table(anoLectivo, alunos, inscricoes, uscs, numAlunos, numInscricoes, numUcss);
-        break;
-    case 'D':
-    case 'd':
-        printRelatorioD_Table(anoLectivo, alunos, inscricoes, uscs, numAlunos, numInscricoes, numUcss);
-        break;
-
-    default:
-        perror("Relatório não especificado, ou inexistente!");
-        break;
-    }
+    // mostra relatorio A
+    printRelatorioA_Table(anoLectivo, alunos, inscricoes, uscs, numAlunos, numInscricoes, numUcss);
 
     return 0;
 }

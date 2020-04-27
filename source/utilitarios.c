@@ -15,7 +15,6 @@ Ficheiro: utilitarios.c
 
 #include "ucs.h"
 #include "inscricoes.h"
-#include "./relatorios/relatorio_d.h"
 
 // Função de cálculo dos ECTS
 int countECTS(INSCRICAO *inscricoes[], UCS *uscs[], int tamInscricoes, int tamUcss, int aNum, char *anoLectivo)
@@ -43,53 +42,6 @@ int countECTS(INSCRICAO *inscricoes[], UCS *uscs[], int tamInscricoes, int tamUc
         }
     }
     return countECTS;
-}
-
-size_t FindInscricoesIndex(ANOSLECTIVOS *a[], size_t size, int aNum, char *anoLectivo)
-{
-    if (size == 0) return -1;
-
-    size_t index = 0;
-
-    while ( index < size ) {
-        if (a[index]->aNum == aNum && strcmp(a[index]->ano, anoLectivo) == 0)
-            break;
-        else 
-            ++index;
-    } 
-
-    return ( index == size ? -1 : index );
-}
-
-size_t FindAnosLectivosIndex(ANOSLECTIVOSTOTAL *a[], size_t size, char *anoLectivo)
-{
-    if (size == 0) return -1;
-
-    size_t index = 0;
-
-    while ( index < size ) {
-        if (strcmp(a[index]->ano, anoLectivo) == 0)
-            break;
-        else 
-            ++index;
-    } 
-
-    return ( index == size ? -1 : index );
-}
-
-static int myCompare(const void* a, const void* b) 
-{ 
-  
-    // setting up rules for comparison 
-    return strcmp(*(const char**)a, *(const char**)b); 
-} 
-  
-// Function to sort the array 
-void sort(ANOSLECTIVOSTOTAL *arr[], int n) 
-{ 
-    // calling qsort function to sort the array 
-    // with the help of Comparator 
-    qsort(arr, n, sizeof(const char*), myCompare); 
 }
 
 // Fim ficheiro "utilitarios.c"
